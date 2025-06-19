@@ -1,0 +1,190 @@
+{% extends "base.html" %} {% block title %}Create Account{% endblock %} {% block
+content %}
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h2>Create Account</h2>
+      <div class="auth-subtitle">
+        Join CatchPhish to protect against phishing threats
+      </div>
+    </div>
+
+    <form method="POST" class="auth-form">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          class="form-control cyber-input"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          class="form-control cyber-input"
+          id="firstName"
+          name="firstName"
+          placeholder="Enter your first name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password1">Password</label>
+        <input
+          type="password"
+          class="form-control cyber-input"
+          id="password1"
+          name="password1"
+          placeholder="Create a strong password"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password2">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control cyber-input"
+          id="password2"
+          name="password2"
+          placeholder="Confirm your password"
+          required
+        />
+      </div>
+
+      <div class="auth-action">
+        <button type="submit" class="btn cyber-btn" id="signup">
+          <span class="btn-text">Create Account</span>
+        </button>
+      </div>
+
+      <div class="auth-links">
+        Already have an account?
+        <a href="{{ url_for('auth.login') }}" class="cyber-link-text">Login</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .auth-card {
+    background-color: rgba(30, 30, 30, 0.7);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: var(--cyber-glow);
+  }
+
+  .auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .auth-header h2 {
+    margin-bottom: 10px;
+  }
+
+  .auth-subtitle {
+    color: var(--light-text);
+    opacity: 0.8;
+    font-size: 0.9rem;
+  }
+
+  .auth-form {
+    position: relative;
+  }
+
+  .cyber-input {
+    background-color: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--primary-color);
+    color: var(--light-text);
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .cyber-input:focus {
+    box-shadow: var(--cyber-glow);
+    border-color: var(--secondary-color);
+    outline: none;
+  }
+
+  label {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
+  }
+
+  .auth-action {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .cyber-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--darker-bg);
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-family: "Orbitron", sans-serif;
+  }
+
+  .cyber-btn:hover {
+    background-color: var(--secondary-color);
+    box-shadow: var(--cyber-glow-intense);
+    transform: translateY(-2px);
+  }
+
+  .auth-links {
+    text-align: center;
+    color: var(--light-text);
+    font-size: 0.9rem;
+  }
+
+  .cyber-link-text {
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .cyber-link-text:hover {
+    color: var(--secondary-color);
+    text-shadow: var(--cyber-glow);
+    text-decoration: none;
+  }
+
+  .cyber-link-text:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+  }
+
+  .cyber-link-text:hover:after {
+    width: 100%;
+  }
+</style>
+{% endblock %}

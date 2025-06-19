@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block title %}URL Detection{% endblock %} {% block
+content %}
+<form method="POST" class="form" id="urlForm" onsubmit="return validateForm()">
+  <h1 class="mb-4">CatchPhish</h1>
+  <p>
+    Scan suspicious URLs and detect phishing attempts with our advanced security
+    system
+  </p>
+  <img class="image" src="./static/image.png" alt="" width="400px" />
+  <div class="form-group mb-3 main">
+    <input
+      type="url"
+      id="main_input"
+      class="url form-control"
+      name="url"
+      placeholder="Enter URL to scan"
+      required
+    />
+    <button type="submit" id="scan" class="btn">SCAN</button>
+  </div>
+  <div id="urlError" class="text-danger" style="display: none">
+    Please enter a valid URL (e.g., https://example.com)
+  </div>
+</form>
+
+<script>
+  function validateForm() {
+    const urlInput = document.getElementById("main_input");
+    const urlError = document.getElementById("urlError");
+
+    // Reset error message
+    urlError.style.display = "none";
+
+    // Check if URL is empty
+    if (!urlInput.value || urlInput.value.trim() === "") {
+      urlError.style.display = "block";
+      return false;
+    }
+
+    // Simple URL validation
+    const urlPattern =
+      /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    if (!urlPattern.test(urlInput.value)) {
+      urlError.style.display = "block";
+      return false;
+    }
+
+    return true;
+  }
+</script>
+{% endblock %}

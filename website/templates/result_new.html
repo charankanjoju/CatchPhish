@@ -1,0 +1,242 @@
+{% extends "base.html" %} {% block title %}Phishing Detection Result{% endblock
+%} {% block content %}
+<div class="result-container">
+  <h1 class="mb-4">Detection Results</h1>
+
+  <div
+    class="cyber-result {% if result == 'Phishing' %}cyber-danger{% else %}cyber-success{% endif %}"
+  >
+    <div class="result-header">
+      <div class="status-indicator"></div>
+      <h2>{{ result }}</h2>
+    </div>
+
+    {% if result == 'Phishing' %}
+    <div class="result-details">
+      <div class="warning-icon">⚠️</div>
+      <p class="warning-text">
+        SECURITY ALERT: This URL has been identified as potentially malicious
+      </p>
+      <div class="confidence-meter">
+        <div class="confidence-bar" style="width: {{ confidence }}%;"></div>
+      </div>
+      <p class="confidence-text">
+        Threat confidence: <strong>{{ confidence }}%</strong>
+      </p>
+      <div class="warning-message">
+        <p>
+          This URL exhibits characteristics commonly associated with phishing
+          attempts. Proceeding to this website may put your personal information
+          at risk.
+        </p>
+      </div>
+    </div>
+    {% else %}
+    <div class="result-details">
+      <div class="success-icon">✅</div>
+      <p class="success-text">SECURE: This URL appears to be legitimate</p>
+      <div class="confidence-meter">
+        <div
+          class="confidence-bar"
+          style="width: {{ 100 - confidence }}%;"
+        ></div>
+      </div>
+      <p class="confidence-text">
+        Security confidence: <strong>{{ 100 - confidence }}%</strong>
+      </p>
+      <div class="success-message">
+        <p>
+          Our analysis indicates this is likely a legitimate website. However,
+          always remain vigilant when sharing sensitive information online.
+        </p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="action-buttons">
+    {% if result == 'Phishing' %}
+    <button class="btn btn-danger mt-4" id="report" onclick="report()">
+      🚨 Report Phishing
+    </button>
+    {% endif %}
+    <a href="/predict" class="btn btn-primary mt-4">🔄 Check Another URL</a>
+  </div>
+</div>
+
+<script>
+  function report() {
+    alert("URL reported successfully!");
+  }
+</script>
+
+<style>
+  .result-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cyber-result {
+    background-color: rgba(30, 30, 30, 0.8);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cyber-danger {
+    border-color: var(--accent-color);
+  }
+
+  .cyber-success {
+    border-color: #00ff66;
+  }
+
+  .result-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .status-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+    animation: pulse 2s infinite;
+  }
+
+  .cyber-danger .status-indicator {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+  }
+
+  .cyber-success .status-indicator {
+    background-color: #00ff66;
+    box-shadow: 0 0 10px #00ff66;
+  }
+
+  .result-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .cyber-danger .result-header h2 {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(255, 0, 102, 0.7);
+  }
+
+  .cyber-success .result-header h2 {
+    color: #00ff66;
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
+  }
+
+  .result-details {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .warning-icon,
+  .success-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .warning-text,
+  .success-text {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  .warning-text {
+    color: var(--accent-color);
+  }
+
+  .success-text {
+    color: #00ff66;
+  }
+
+  .confidence-meter {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 80%;
+    overflow: hidden;
+  }
+
+  .confidence-bar {
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .cyber-danger .confidence-bar {
+    background: linear-gradient(to right, #ff0066, #ff3385);
+    box-shadow: 0 0 10px rgba(255, 0, 102, 0.7);
+  }
+
+  .cyber-success .confidence-bar {
+    background: linear-gradient(to right, #00cc52, #00ff66);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
+  }
+
+  .confidence-text {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+
+  .warning-message,
+  .success-message {
+    background-color: rgba(10, 10, 10, 0.5);
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .warning-message p,
+  .success-message p {
+    text-align: left;
+    margin: 0;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn-danger {
+    background-color: var(--accent-color);
+    border: none;
+  }
+
+  .btn-danger:hover {
+    background-color: #ff3385;
+    box-shadow: 0 0 15px rgba(255, 0, 102, 0.7);
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,276 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="cyber-home">
+  <h1 class="cyber-title">CatchPhish</h1>
+  <div class="cyber-subtitle">Advanced Phishing Detection System</div>
+
+  <div class="cyber-grid">
+    <div class="cyber-card">
+      <div class="card-header">
+        <div class="card-icon">🛡️</div>
+        <h3>About CatchPhish</h3>
+      </div>
+      <div class="card-content">
+        <p>
+          CatchPhish is an advanced cybersecurity platform designed to protect
+          individuals and organizations from sophisticated phishing attacks. Our
+          system uses machine learning algorithms to identify and flag malicious
+          URLs that attempt to steal sensitive information by impersonating
+          legitimate websites.
+        </p>
+      </div>
+    </div>
+
+    <div class="cyber-card">
+      <div class="card-header">
+        <div class="card-icon">🔍</div>
+        <h3>How It Works</h3>
+      </div>
+      <div class="card-content">
+        <p>
+          Our system analyzes URLs using multiple security parameters including
+          domain age, SSL certification, URL structure, and content patterns.
+          The advanced algorithm can detect even the most sophisticated phishing
+          attempts with high accuracy.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cyber-card full-width">
+    <div class="card-header">
+      <div class="card-icon">⚠️</div>
+      <h3>Security Recommendations</h3>
+    </div>
+    <div class="card-content">
+      <ul class="cyber-list">
+        <li>
+          <span class="list-icon">🔒</span>
+          <span class="list-text"
+            >Enable two-factor authentication on all your important
+            accounts</span
+          >
+        </li>
+        <li>
+          <span class="list-icon">🔄</span>
+          <span class="list-text"
+            >Use unique, complex passwords for different websites</span
+          >
+        </li>
+        <li>
+          <span class="list-icon">👁️</span>
+          <span class="list-text"
+            >Verify the URL before entering sensitive information</span
+          >
+        </li>
+        <li>
+          <span class="list-icon">🔄</span>
+          <span class="list-text"
+            >Keep your software and browsers updated with security patches</span
+          >
+        </li>
+        <li>
+          <span class="list-icon">🛑</span>
+          <span class="list-text"
+            >Be cautious of unsolicited emails requesting personal
+            information</span
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cyber-action">
+    <a href="/predict" class="cyber-button">
+      <span class="button-text">Start Scanning</span>
+      <span class="button-icon">→</span>
+    </a>
+  </div>
+</div>
+
+<footer class="cyber-footer">
+  <div class="footer-content">
+    <p>&copy; 2024 CatchPhish | Advanced Phishing Detection System</p>
+  </div>
+</footer>
+
+<style>
+  .cyber-home {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .cyber-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+  }
+
+  .cyber-subtitle {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .cyber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .cyber-card {
+    background-color: rgba(30, 30, 30, 0.7);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .cyber-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--cyber-glow);
+  }
+
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
+  .card-header {
+    background-color: rgba(13, 255, 255, 0.1);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--primary-color);
+  }
+
+  .card-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+
+  .card-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    text-align: left;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-content p {
+    text-align: left;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .cyber-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cyber-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .cyber-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .list-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    min-width: 30px;
+  }
+
+  .list-text {
+    font-size: 1.1rem;
+    color: var(--light-text);
+  }
+
+  .cyber-action {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .cyber-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--darker-bg);
+    padding: 15px 30px;
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .cyber-button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: var(--cyber-glow-intense);
+    transform: translateY(-3px);
+    text-decoration: none;
+    color: var(--darker-bg);
+  }
+
+  .button-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  .button-icon {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+
+  .cyber-button:hover .button-icon {
+    transform: translateX(5px);
+  }
+
+  .cyber-footer {
+    background-color: rgba(10, 10, 10, 0.8);
+    border-top: 1px solid var(--primary-color);
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .footer-content p {
+    margin: 0;
+    color: var(--light-text);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .cyber-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cyber-title {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+{% endblock %}

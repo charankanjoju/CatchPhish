@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %}Detect Phishing Text{% endblock %} {%
+block content %}
+<div class="container mt-4">
+  <h1 class="mb-4 text-center">Email & SMS Phishing Detector</h1>
+
+  <form method="POST" action="/detect-text">
+    <div class="form-group">
+      <label for="textInput"><strong>Enter Email or SMS:</strong></label>
+      <textarea
+        class="form-control"
+        id="textInput"
+        name="textInput"
+        rows="5"
+        placeholder="Paste an email or SMS message to check for phishing..."
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3 w-100">
+      Detect Phishing
+    </button>
+  </form>
+
+  {% if result %}
+  <div
+    class="mt-4 p-3 border rounded {% if result == 'phishing' %}bg-danger text-white{% else %}bg-success text-white{% endif %}"
+  >
+    <h4>Detection Result:</h4>
+    <p><strong>Prediction:</strong> {{ result | capitalize }}</p>
+    <p><strong>Confidence:</strong> {{ confidence }}%</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
