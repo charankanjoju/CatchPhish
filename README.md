@@ -21,7 +21,11 @@ The platform provides a secure login/signup system, an interactive dashboard, an
 
 <img width="1901" height="904" alt="Screenshot 2025-08-28 095943" src="https://github.com/user-attachments/assets/942b1012-621b-45d0-bb35-22268483dea4" />
 
-<img width="1904" height="904" alt="Screenshot 2025-08-28 095922" src="https://github.com/user-attachments/assets/da773d52-f0f8-4e65-af0d-10c4f8f55e1a" />
+<img width="1655" height="906" alt="Screenshot 2025-08-29 203919" src="https://github.com/user-attachments/assets/367a0a97-7d8c-42f6-a3a5-dd03008d7593" />
+
+<img width="1634" height="910" alt="Screenshot 2025-08-29 203936" src="https://github.com/user-attachments/assets/983a9001-1cdb-4345-bfda-f2d78b548b88" />
+
+
 
 
 ## 🏗️ Tech Stack
